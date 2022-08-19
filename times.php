@@ -1,5 +1,9 @@
 <?php
-$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+if (file_exists('wp-config.php')){
+	$current_url = 'https://times.psykrotek.co.za/times.php';
+}else {
+	$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . '/';
+}
 $limit = isset( $_GET['limit'] ) ? $_GET['limit'] : 10;
 for ($i = 1; $i <= $limit; $i++) {
 	$numbers[] = $i;
@@ -17,7 +21,7 @@ foreach ($numbers as $key => $number) {
 
 $links = array();
 for ($i = 1; $i <= 20; $i++) {
-	$links[] = "<a href='{$current_url}/?limit={$i}'>{$i}</a>";
+	$links[] = "<a href='{$current_url}?limit={$i}'>{$i}</a>";
 }
 ?>
 <!DOCTYPE html>
