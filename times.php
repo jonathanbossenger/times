@@ -95,7 +95,7 @@ for ($i = 1; $i <= 20; $i++) {
         }
 
     </style>
-	<script type="application/javascript">
+    <script type="application/javascript">
 
         let timer = null;
         let seconds = 0;
@@ -108,11 +108,11 @@ for ($i = 1; $i <= 20; $i++) {
                     hideModal();
                 }
             });
-            <?php
-	        if ( ! isset( $_GET['limit'] ) ) {
-		        echo "showModal();";
-	        }
-            ?>
+			<?php
+			if ( ! isset( $_GET['limit'] ) ) {
+				echo "showModal();";
+			}
+			?>
         });
 
         function calcValues() {
@@ -197,41 +197,41 @@ for ($i = 1; $i <= 20; $i++) {
             let modal = document.getElementById('modal');
             modal.style.display = 'none';
         }
-	</script>
+    </script>
 </head>
 <body>
-    <div id="modal">
-        <a class="close-modal" onclick="hideModal()">x</a>
-        <div class="modal-content">
-            <h2 class="modal-header">Instructions</h2>
-            <p>Enter your answers, click the <strong>Check</strong>
-                button
-                to verify your answers.</p>
-            <p>Tip: Use the <strong>Tab</strong> key on your keyboard to quickly jump to the next answer box.</p>
-            <h2 class="modal-header">Game settings</h2>
-            <p>To create randomised lists of times table tests, use the predefined upper limits to create larger times tables</p>
-            <p><?php echo implode( ' | ', $links ); ?></p>
+<div id="modal">
+    <a class="close-modal" onclick="hideModal()">x</a>
+    <div class="modal-content">
+        <h2 class="modal-header">Instructions</h2>
+        <p>Enter your answers, click the <strong>Check</strong>
+            button
+            to verify your answers.</p>
+        <p>Tip: Use the <strong>Tab</strong> key on your keyboard to quickly jump to the next answer box.</p>
+        <h2 class="modal-header">Game settings</h2>
+        <p>To create randomised lists of times table tests, use the predefined upper limits to create larger times tables</p>
+        <p><?php echo implode( ' | ', $links ); ?></p>
+    </div>
+</div>
+<div id="content">
+    <h1>Randomised times table tester</h1>
+    <div class="instruction-container">
+        <div class="instruction-item">
+            <span id="timer-message">Timer</span>
+            <span id="timer">00:00:00</span>
+        </div>
+        <div class="instruction-item">
+            <a href="#" onclick="showModal()">Show Instructions</a>
         </div>
     </div>
-    <div id="content">
-        <h1>Randomised times table tester</h1>
-        <div class="instruction-container">
-            <div class="instruction-item">
-                <span id="timer-message">Timer</span>
-                <span id="timer">00:00:00</span>
-            </div>
-            <div class="instruction-item">
-                <a href="#" onclick="showModal()">Show Instructions</a>
-            </div>
-        </div>
-        <div class="times-container">
-		    <?php echo implode( '', $lines ); ?>
-        </div>
-        <div class="button-container">
-            <div class="grid-item">
-                <button onclick="calcValues()">Check</button>
-            </div>
+    <div class="times-container">
+		<?php echo implode( '', $lines ); ?>
+    </div>
+    <div class="button-container">
+        <div class="grid-item">
+            <button onclick="calcValues()">Check</button>
         </div>
     </div>
+</div>
 </body>
 </html>
